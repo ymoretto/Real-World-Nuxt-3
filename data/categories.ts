@@ -15,9 +15,9 @@ export interface CategoryDetails {
 }
 
 export const getCategoriesUrl = () => (
-  'http://localhost:3001/categories'
+  'http://localhost:3031/categories'
 )
 
 export const getCategoryDetailsUrl = (categorySlug: string) => (
-  `http://localhost:3001/categories/${categorySlug}?_embed=posts`
+  `http://localhost:3031/categories/${categorySlug}?_embed=posts`
 )
