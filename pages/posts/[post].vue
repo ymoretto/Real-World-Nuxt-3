@@ -1,11 +1,22 @@
 <script setup lang="ts">
-const postSlug = useRoute().params.post;
+import type { PostDetails } from '@/data/posts';
+import { getPostDetailsUrl } from '@/data/posts';
+
+const postSlug = useParam('post');
+
+const { data: post } = await useFetch<PostDetails>(
+    getPostDetailsUrl(postSlug)
+)
 </script>
 
 <template>
     <main>
-        <h1>
-            Nuxt Post #1
-        </h1>
+        <template v-if="post">
+            <h1>
+                {{ post.title}}
+                <CategoryLink :category="post.category" />
+            </h1>
+            <RenderMarkdown :source="post.content" />
+        </template>
     </main>
 </template>

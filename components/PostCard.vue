@@ -12,14 +12,14 @@
         <h2 class="title">{{  post.title }}</h2>
         <CategoryLink :category="post.category"/>
         <RenderMarkdown :source="post.intro"/>
-        <a 
-          href="#"
+        <NuxtLink 
+          :to="`/posts/${post.slug}`"
           class="more"
           @mouseenter="isHover = true"
           @mouseleave="isHover = false"  
         >
           ...More
-        </a>
+        </NuxtLink>
     </div>
 </template>
 
